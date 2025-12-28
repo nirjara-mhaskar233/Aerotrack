@@ -1,0 +1,17 @@
+
+.login-container {
+  max-width: 360px;
+  margin: 8vh auto;
+  padding: 24px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+}
+h1 { font-size: 20px; margin-bottom: 16px; }
+label { display: block; margin-bottom: 12px; }
+label span { display: block; font-size: 12px; color: #555; margin-bottom: 4px; }
+input { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; }
+button { width: 100%; margin-top: 12px; padding: 10px; background: #0b5ed7; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+button[disabled] { opacity: 0.6; cursor: not-allowed; }
+.error { color: #b00020; margin-top: 8px; }
+.hint { font-size: 12px; color: #666; margin-top: 12px; }

@@ -1,11 +1,16 @@
 
+// app.component.ts (standalone)
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { RouterLinkActive } from '@angular/router';
-
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { AuthService } from './core/services/auth.service';
 @Component({
-    selector: 'app-root',
-    imports: [RouterModule, RouterLinkActive],
-    templateUrl: './app.component.html'
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, NgIf],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(public auth: AuthService) {}
+}
