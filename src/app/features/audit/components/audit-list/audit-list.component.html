@@ -34,7 +34,7 @@
         <td>{{ x.aircraftID }}</td>
         <td><div class="findings-cell">{{ x.findings }}</div></td>
 
-        <!-- Inline status dropdown -->
+        
         <td class="status-cell">
           <select class="input status-select"
                   [(ngModel)]="x.status"
@@ -48,11 +48,12 @@
         <td class="date-cell">{{ x.date }}</td>
         <td class="date-cell">{{ x.resolvedDate || '—' }}</td>
 
-        <td class="actions-cell">
-          <!-- Inline modal trigger (no route change) -->
-          <button class="btn secondary" (click)="openEdit(x)">Edit</button>
-          <button class="btn danger" (click)="remove(x.auditID)">Delete</button>
-        </td>
+        
+<td class="actions-cell">
+  <button class="btn edit-btn" (click)="openEdit(x)">Edit</button>
+  <button class="btn delete-btn" (click)="remove(x.auditID)">Delete</button>
+</td>
+
       </tr>
 
       <tr *ngIf="logs.length === 0">

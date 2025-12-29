@@ -1,36 +1,68 @@
-.audit-table th, .audit-table td { vertical-align: middle; }
-.findings-cell { max-width: 480px; white-space: normal; word-wrap: break-word; }
-.status-select { min-width: 9rem; }
-.date-cell { white-space: nowrap; }
-.actions-cell { display: flex; gap: 0.5rem; align-items: center; }
-.empty-row { text-align: center; color: var(--muted, #6b7280); }
 
-
-.modal-backdrop {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.3);
-  display: grid; place-items: center;
-  z-index: 1000;
-  outline: none;
+td.actions-cell {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  white-space: nowrap;
 }
-.modal-panel {
-  width: min(720px, 94vw);
-  background: #fff;
+
+td.actions-cell .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 18px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  padding: 1rem 1.25rem;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
 }
-.modal-title { margin: 0 0 0.75rem; }
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem 1rem;
+
+td.actions-cell .edit-btn {
+  background-color: #ffffff;
+  color: #1d4ed8;
+  border-color: #93c5fd;
 }
-.form-grid label {
-  display: flex; flex-direction: column; gap: 0.25rem;
+
+td.actions-cell .edit-btn:hover {
+  background-color: #f5f9ff;
+  border-color: #60a5fa;
+  box-shadow: 0 1px 4px rgba(29, 78, 216, 0.16);
 }
-.form-grid label.full { grid-column: 1 / -1; }
-.actions {
-  grid-column: 1 / -1;
-  display: flex; gap: 0.5rem; margin-top: 0.5rem;
+
+td.actions-cell .edit-btn:active {
+  background-color: #eef4ff;
+  border-color: #3b82f6;
+}
+
+td.actions-cell .delete-btn {
+  background-color: #dc3545;
+  color: #ffffff;
+  border-color: #e5737d;
+}
+
+td.actions-cell .delete-btn:hover {
+  background-color: #c82333;
+  border-color: #dc5a64;
+  box-shadow: 0 1px 4px rgba(200, 35, 51, 0.22);
+}
+
+td.actions-cell .delete-btn:active {
+  background-color: #b31c29;
+  border-color: #cf4a54;
+}
+
+td.actions-cell .btn:focus-visible {
+  outline: 2px solid rgba(29, 78, 216, 0.25);
+  outline-offset: 2px;
+}
+
+.audit-table th:last-child,
+.audit-table td.actions-cell {
+  min-width: 240px;
 }

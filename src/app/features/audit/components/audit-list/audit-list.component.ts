@@ -10,7 +10,8 @@ import { AuditLog, Status } from '../../../../core/models/audit-log.model';
   selector: 'app-audit-list',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './audit-list.component.html'
+  templateUrl: './audit-list.component.html',
+  styleUrls: ['./audit-list.component.css']
 })
 export class AuditListComponent implements OnInit {
   term = '';

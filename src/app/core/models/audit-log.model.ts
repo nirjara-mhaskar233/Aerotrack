@@ -6,6 +6,6 @@ export interface AuditLog {
   aircraftID: string;
   findings: string;
   status?: Status;
-  date: string;            // Audit Created (ISO date)
-  resolvedDate?: string;   // Resolved On (ISO date)
+  date: string;            
+  resolvedDate?: string;  
 }
