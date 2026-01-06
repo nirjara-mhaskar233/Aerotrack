@@ -1,8 +1,9 @@
 
+// src/app/app.config.ts
 import { ApplicationConfig } from '@angular/core';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes'; // <-- new import
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -10,4 +11,3 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
   ]
 };
-
