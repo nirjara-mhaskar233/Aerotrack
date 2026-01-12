@@ -34,9 +34,8 @@
     <tbody>
       <tr *ngFor="let a of aircraft">
         <td>
-          <a class="link" [routerLink]="['/aircraft', a.aircraftID]">{{
-            a.aircraftID
-          }}</a>
+           {{a.aircraftID}}
+        
         </td>
         <td>{{ a.model }}</td>
         <td>{{ a.category }}</td>
