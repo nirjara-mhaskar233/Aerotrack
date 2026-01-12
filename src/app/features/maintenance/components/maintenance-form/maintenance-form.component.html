@@ -11,8 +11,7 @@
         type="text"
         placeholder="Format: AA-0000"
         [formControl]="form.controls.taskID"
-        style="min-width: 130px;
-        "
+        style="min-width: 130px"
       />
       <small
         style="color: #dc3545"
@@ -27,29 +26,35 @@
       <select
         class="form-select form-select-sm"
         [formControl]="form.controls.aircraftID"
-        style="min-width: 140px;"
+        style="min-width: 140px"
       >
         <option value="">Select Aircraft</option>
         <option *ngFor="let id of aircraftIDs" [value]="id">{{ id }}</option>
       </select>
     </div>
 
-   
     <div class="col-4">
       <label>Scheduled Date</label>
       <input
         class="input form-control form-control-sm"
         type="date"
         [formControl]="form.controls.scheduledDate"
-        style="min-width: 140px;"
+        style="min-width: 140px"
       />
     </div>
 
     <!-- Status (wider dropdown) -->
-    <div class="col-4">
+    <div class="col-6">
       <label>Status</label>
-      <select
+      <!-- <select
         class="form-select form-select-sm status-select"
+        [formControl]="form.controls.status"
+      >
+        <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+      </select> -->
+
+      <select
+        class="form-select form-select-sm status-select w-100"
         [formControl]="form.controls.status"
       >
         <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
@@ -58,17 +63,17 @@
   </div>
 
   <!-- Actions -->
-  <div class="form-actions" style="margin-top: 16px;">
-    <button
-      class="btn btn-outline-primary btn-sm"
-      (click)="submit()"
-    >
+  <div class="form-actions" style="margin-top: 16px">
+    <button class="btn btn-outline-primary btn-sm" (click)="submit()">
       {{ isEdit ? "Save Changes" : "Create Task" }}
     </button>
 
-    <a class="btn btn-link btn-sm" routerLink="/maintenance" style="margin-left: 8px;">
+    <a
+      class="btn btn-link btn-sm"
+      routerLink="/maintenance"
+      style="margin-left: 8px"
+    >
       Cancel
     </a>
   </div>
 </div>
-
