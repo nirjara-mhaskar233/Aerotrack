@@ -7,7 +7,7 @@ export class AuthService {
   private readonly LS_KEY = "aerotrack.currentUser";
   private router = inject(Router);
 
-  // DEMO USERS (do not use in production)
+  // DEMO USERS 
   private readonly demoUsers: Array<User & { password: string }> = [
     {
       id: "u-admin-1",

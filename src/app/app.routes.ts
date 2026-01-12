@@ -1,22 +1,16 @@
-
-// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 
-// ---- Auth guard (needed at definition time)
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   // Default → Login
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-
-  // Public: Login page (lazy-loaded)
   {
     path: 'login',
     loadComponent: () =>
       import('./pages/login/login.component').then(m => m.LoginComponent),
   },
 
-  // Dashboards (lazy-loaded + guarded)
   {
     path: 'dashboards',
     canActivate: [AuthGuard],
@@ -25,7 +19,6 @@ export const routes: Routes = [
         .then(m => m.DashboardsPageComponent),
   },
 
-  // Aircraft (all lazy-loaded + guarded)
   {
     path: 'aircraft',
     canActivate: [AuthGuard],
