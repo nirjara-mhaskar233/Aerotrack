@@ -15,49 +15,48 @@
   </div>
 
   <div style="display: flex; gap: 8px; align-content: center">
+    <a
+      class="btn btn-outline-secondary"
+      routerLink="/maintenance/new"
+      style="
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 110px;
+        height: 64px;
+        text-align: center;
+        padding: 0;
+      "
+    >
+      <span style="line-height: 1.1; font-size: 14px">+ New</span>
+      <span style="line-height: 1.1; font-size: 14px">Task</span>
+    </a>
 
-<a
-  class="btn btn-outline-secondary"
-  routerLink="/maintenance/new"
-  style="
-    display:inline-flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    width:110px;
-    height:64px;
-    text-align:center;
-    padding:0;
-  "
->
-  <span style="line-height:1.1;font-size: 14px;">+ New</span>
-  <span style="line-height:1.1 ;font-size: 14px ">Task</span>
-</a>
+    <select
+      class="form-select form-select-sm"
+      [(ngModel)]="selectedAircraftForEmergency"
+      style="min-width: 180px"
+    >
+      <option value="">Select AircraftID</option>
+      <option *ngFor="let id of aircraftIDs" [value]="id">{{ id }}</option>
+    </select>
 
-
-    
-        <select class="form-select form-select-sm" [(ngModel)]="selectedAircraftForEmergency" style="min-width:180px;">
-        <option value="">Select AircraftID</option>
-        <option *ngFor="let id of aircraftIDs" [value]="id">{{ id }}</option>
-        </select>
-
-
-<button
-  class="btn btn-danger"
-  (click)="createEmergency()"
-  style="
-    width: 110px;
-    height: 64px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 13px;
-  "
->
-  Create Emergency Task
-</button>
-
+    <button
+      class="btn btn-danger"
+      (click)="createEmergency()"
+      style="
+        width: 110px;
+        height: 64px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 13px;
+      "
+    >
+      Create Emergency Task
+    </button>
   </div>
 </div>
 
@@ -98,8 +97,9 @@
               {{ t.status }}
             </span>
 
-
-            <span *ngIf="t.isEmergency" class="badge text-bg-danger btn-sm ms-2">EMERGENCY</span>
+            <span *ngIf="t.isEmergency" class="badge text-bg-danger btn-sm ms-2"
+              >EMERGENCY</span
+            >
 
             <span *ngIf="t.isEmergency && t.dueAt" class="badge badge-sla">
               SLA: {{ timeLeft(t.dueAt) }}
@@ -126,8 +126,7 @@
                 Complete
               </button>
 
-
-              <button
+              <a
                 class="btn btn-sm"
                 [ngClass]="
                   t.status === 'COMPLETED'
@@ -135,11 +134,11 @@
                     : 'btn-outline-secondary'
                 "
                 style="min-width: 90px; text-align: center"
-                [disabled]="t.status === 'COMPLETED'"
-                (click)="onEdit(t.taskID)"
+                [class.disabled]="t.status === 'COMPLETED'"
+                [routerLink]="['/maintenance', t.taskID, 'edit']"
               >
                 Edit
-              </button>
+              </a>
 
               <button
                 class="btn danger"
